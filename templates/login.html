@@ -1,0 +1,95 @@
+{%extends 'base.html'%}
+
+{%block title%}Inicio de Sesión{%endblock%}
+
+{%block content%}
+<section>
+    <!--Olvido de contraseña-->
+    <div class="container_reset_pass" id="pass_send">
+        <div class="xmark_pass" id="xmark_pass">
+            <img src="../static/img/xmark.png" id="pss_xmark" alt="">
+        </div>
+        <div class="cont_reset_pass">
+            <ol>
+                <p>¿Haz olvidado tu contraseña?</p>
+                <form action="">
+                    <label>Ingresa tu correo electronico:</label>
+                    <input type="email" name="email">
+                    <input type="submit" value="Enviar" disabled>
+                </form>
+            </ol>
+        </div>
+    </div>
+    <div class="contenedor_login">
+        <div class="cont_login">
+            <div class="cont_login_title">
+                <ul>
+                    <img src="../static/img/login_img.png" alt="">
+                    <h1>Cobrar tus remesas ahora es mas sencillo</h2>
+                        <p>¡No te pierdas ni un segundo más esperando tus remesas! Ahora, gracias a nuestra plataforma,
+                            cobrar tus remesas es más sencillo que nunca. Olvídate de largas colas y trámites
+                            complicados. Con nosotros, accede a tu dinero de manera rápida, segura y sin complicaciones.
+                        </p>
+                        <div class="cont_login_title_icon">
+                            <i class="fa-brands fa-facebook"></i>
+                            <i class="fa-brands fa-whatsapp"></i>
+                            <i class="fa-brands fa-instagram"></i>
+                            <i class="fa-brands fa-twitter"></i>
+                        </div>
+                </ul>
+            </div>
+            <div class="cont_login_form">
+                <ul>
+                    <h1>Iniciar Sesión</h1>
+                    <form method="post">
+                        <div>
+                            <label>Nombre de Usuario</label>
+                            <input type="text" name="user" required>
+                        </div>
+                        <div>
+                            <label>Contraseña</label>
+                            <input type="password" name="password" required>
+                        </div>
+                        <div>
+                            <input type="submit" value="Iniciar Sesión" required disabled>
+                        </div>
+                        <div>
+                            <a href="" id="forgot-password-link">¿Olvido su contraseña?</a>
+                        </div>
+                    </form>
+                    <label>¿No tienes una cuenta?<a href="registro">Crear cuenta</a></label>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // Obtener las referencias
+        var forgotPasswordLink = document.getElementById('forgot-password-link');
+        var passSendContainer = document.getElementById('pass_send');
+        var xmarkIcon = document.getElementById('xmark_pass');
+
+        // Agregar un evento de clic al enlace
+        forgotPasswordLink.addEventListener('click', function (event) {
+            // Evitar el comportamiento predeterminado del enlace
+            event.preventDefault();
+
+            setTimeout(function () {
+                // Mostrar el contenedor "pass-send"
+                passSendContainer.style.display = 'block';
+            });
+        });
+
+        // Agregar un evento de clic al ícono "xmark"
+        xmarkIcon.addEventListener('click', function () {
+            // Ocultar el contenedor "pass-send" al hacer clic en el ícono "xmark"
+            passSendContainer.style.display = 'none';
+        });
+    });
+</script>
+
+{%endblock%}
+
+{%block footer%}{%endblock%}

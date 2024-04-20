@@ -1,0 +1,130 @@
+{%extends 'base.html'%}
+
+{%block title%}Conversor{%endblock%}
+
+{%block content%}
+
+<body>
+    <div id="container_modal" class="container_modal">
+        <div class="modal_xmark">
+            <img src="../static/img/xmark.png" id="modal_xmark" alt="">
+        </div>
+        <div class="modal_cont">
+            <div class="modal_title">
+                <img src="../static/img/modal_icon.png" alt="">
+            </div>
+            <div class="modal_servicios">
+                <a href="compra_y_venta_de_divisas">
+
+                    <img src="../static/img/divisas_icon.png" alt="">
+
+                    Compra y Venta de Divisas</a>
+                <a href="transferencias_internacionales">
+
+                    <img src="../static/img/divisas_icon.png" alt="">
+                    Transferencias Internacionales
+
+                </a>
+                <a href="compra_y_venta_de_cheques_viajeros">
+
+                    <img src="../static/img/divisas_icon.png" alt="">
+                    Compra y venta de cheques de viajero
+
+                </a>
+                <a href="envio_de_remesas">
+
+                    <img src="../static/img/divisas_icon.png" alt="">
+                    Envío de Remesas
+
+                </a>
+                <a href="">
+
+                    <img src="../static/img/divisas_icon.png" alt="">
+                    Envíos de dinero
+                </a>
+            </div>
+        </div>
+    </div>
+    <style>
+        body {
+            background-color: #fff;
+        }
+
+        section {
+            @media (max-width:1000px) {
+                height: auto;
+                flex-direction: column;
+                display: block;
+            }
+        }
+    </style>
+    <section style="display: flex; align-items: center; justify-content: space-between; margin: 0 25px;">
+        <div class="container_exchange">
+            <div class="exchange_details">
+                <img src="../static/img/exchange.png" width="100px">
+                <h1 class="exchange_title">Convertidor</h1>
+            </div>
+            <label for="amount">Cantidad:</label>
+            <input type="number" id="amount" value="100">
+            <div class="dropdowns_amount">
+                <select id="from-currency-select"></select>
+                <select id="to-currency-select"></select>
+            </div>
+            <button id="convert_button">Convertir</button>
+            <p id="resultado"></p>
+        </div>
+        <div class="converter_text">
+            <img src="../static/img/exchange_woman.png">
+            <p>"¡Explora el mundo financiero con nuestro convertidor de monedas! Convierte fácilmente entre todas las
+                divisas disponibles y haz que tus transacciones sean más sencillas que nunca."</p>
+        </div>
+    </section>
+    <main>
+        <div class="exchange_online">
+            <div class="online_text">
+                <p>Para realizar una operacion <br> intercambiaria.</p>
+                <a href="#" id="openModalLink">Haz click aqui!</a>
+            </div>
+        </div>
+    </main>
+
+    <script src="../static/js/currency-code.js"></script>
+    <script src="../static/js/api-key.js"></script>
+    <script src="../static/js/script.js"></script>
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Obtener referencia al enlace con el id "openModalLink"
+            var openModalLink = document.getElementById('openModalLink');
+
+            // Obtener referencia al elemento con el id "modal_xmark"
+            var xMark = document.getElementById('modal_xmark');
+
+            // Obtener referencia al elemento con el id "container_modal"
+            var modalContainer = document.getElementById('container_modal');
+
+            // Agregar evento click al enlace "openModalLink"
+            openModalLink.addEventListener('click', function (event) {
+                // Prevenir el comportamiento predeterminado del enlace
+                event.preventDefault();
+
+                // Mostrar el modal al hacer clic en el enlace
+                modalContainer.style.display = 'block';
+
+                // Desplazarse hasta el contenedor del modal
+                modalContainer.scrollIntoView({ behavior: 'smooth' });
+            });
+
+            // Agregar evento click al elemento con el id "modal_xmark"
+            xMark.addEventListener('click', function () {
+                // Ocultar el modal al hacer clic en el botón X
+                modalContainer.style.display = 'none';
+            });
+        });
+
+
+    </script>
+</body>
+
+{%endblock%}

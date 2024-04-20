@@ -1,0 +1,60 @@
+{%extends 'base.html'%}
+
+{%block title%}Inicio{%endblock%}
+
+{%block content%}
+
+<section>
+    <div class="contenedor_register">
+        <div class="cont_register">
+            <div class="cont_register_form">
+                <ul>
+                    <h1>Registrate</h1>
+                    <form method="post">
+                        <div>
+                            <label>Nombre y Apellido</label>
+                            <input type="text" name="name" required>
+                        </div>
+                        <div>
+                            <label>Nombre de Usuario</label>
+                            <input type="text" name="user" required>
+                        </div>
+                        <div>
+                            <label>Correo electronico</label>
+                            <input type="email" name="email" required>
+                        </div>
+                        <div>
+                            <label>Contraseña</label>
+                            <input type="password" id="password" name="password" required>
+                        </div>
+                        <div>
+                            <label>Confirmar contraseña</label>
+                            <input type="password" id="pass_confirm" name="pass_confirm" required>
+                        </div>
+                        <div>
+                            <input type="submit" value="Registrarse" required disabled>
+                        </div>
+                    </form>
+                    <label>¿Ya tienes una cuenta?<a href="login">Iniciar Sesión</a></label>
+                </ul>
+            </div>
+            <div class="cont_register_title">
+                <ul>
+                    <img src="../static/img/register_img.jpg" alt="">
+                    <h1>¿Quieres enviar dinero a otros paises?</h2>
+                        <p>¡Explora nuevas fronteras financieras y envía dinero a cualquier parte del mundo con facilidad y seguridad!</p>
+                        <div class="cont_register_title_icon">
+                            <i class="fa-brands fa-facebook"></i>
+                            <i class="fa-brands fa-whatsapp"></i>
+                            <i class="fa-brands fa-instagram"></i>
+                            <i class="fa-brands fa-twitter"></i>
+                        </div>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+{%endblock%}

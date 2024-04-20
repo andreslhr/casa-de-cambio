@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--Link-->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/estilos.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="shorcut icon" href="../static/img/icon_web.png">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+
+    <!--Script-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" charset="UTF-8"></script>
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/swiper-bundle.min.css"></script>
+
+
+    <!--Title-->
+    <title>{%block title%}{%endblock%}</title>
+
+    <style>
+        .flash-message {
+            z-index: 10;
+            position: absolute;
+            top: 80px;
+            left: 15px;
+        }
+
+        #flash-messages li {
+            list-style: none;
+            background-color: rgb(57, 152, 203);
+            color: #fff;
+            padding: 5px 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    {% for message in messages %}
+    <div class="flash-message" id="flash-messages">
+        <li>
+            {{ message }}
+        </li>
+    </div>
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
+
+
+    <header>
+        <div class="nav_container">
+            <div class="cont_nav">
+                <div class="nav_logo">
+                    <p>TuCambio</p>
+                </div>
+                <nav>
+                    <li><a href="/">Inicio</a></li>
+                    <li><a href="/">Servicios<i class="fa-solid fa-chevron-down"></i></a>
+                        <ul class="sub_menu">
+                            <a href="compra_y_venta_de_divisas">Compra y Venta de Divisas</a>
+                            <a href="transferencias_internacionales">Transferencias Internacionales</a>
+                            <a href="compra_y_venta_de_cheques_viajeros">Compra y venta de cheques de viajero</a>
+                            <a href="envio_de_remesas">Envío de Remesas</a>
+                            <a href="envio_de_dinero">Envíos de dinero</a>
+                        </ul>
+                    </li>
+                    <li><a href="conversor">Convertidor</a></li>
+                    <li> <a href="quienes_somos">¿Quienes somos?</a></li>
+                </nav>
+                <div class="nav_login">
+                    {% if current_user.is_authenticated %}
+                    <li class="logout-form">
+                        <form>
+                            <a class="btn_perfil" id="btnPerfil">Mi Perfil</a>
+                        </form>
+                        <form id="logout-form-btn-drop" action="/logout" method="GET">
+                            <input type="submit" class="btn_logout" value="Cerrar Sesión">
+                        </form>
+                    </li>
+                    {% else %}
+                    <a href="login">Iniciar Sesión</a>
+                    {%endif%}
+                </div>
+                <div class="nav-icon" id="menu_icon">
+                    <img src="../static/img/menu_icon.png" alt="">
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!--Menu vertical-->
+
+    <div class="side-bar">
+        <div class="close-btn">
+            <i class="fas fa-times"></i>
+        </div>
+        <div class="menu">
+            <div class="item"><a href="/">Inicio</a></div>
+            <div class="item">
+                <a class="sub-btn">Servicios<i class="fa-solid fa-angle-right dropdown"></i></a>
+                <div class="sub-menu">
+                    <a href="compra_y_venta_de_divisas" class="sub-item">Compra y Venta de Divisas</a>
+                    <a href="transferencias_internacionales" class="sub-item">Transferencias Internacionales</a>
+                    <a href="compra_y_venta_de_cheques_viajeros" class="sub-item">Compra y venta de cheques de
+                        viajero</a>
+                    <a href="envio_de_remesas" class="sub-item">Envío de Remesas</a>
+                    <a href="#" class="sub-item">Envíos de dinero</a>
+                </div>
+            </div>
+            <div class="item"><a href="conversor">Convertidor</a></div>
+            <div class="item"><a href="quienes_somos">¿Quienes
+                    somos?</a>
+            </div>
+            <div class="nav_login dropdown_login">
+                {% if current_user.is_authenticated %}
+                <li class="logout-form">
+                    <form>
+                        <a class="btn_perfil" id="btnPerfil">Mi Perfil</a>
+                    </form>
+                    <form id="logout-form-btn-drop" action="/logout" method="GET">
+                        <input type="submit" class="btn_logout" value="Cerrar Sesión">
+                    </form>
+                </li>
+                {% else %}
+                <a href="login">Iniciar Sesión</a>
+                {%endif%}
+            </div>
+
+        </div>
+    </div>
+
+
+    {%block content%}{%endblock%}
+
+    {%block footer%}
+
+    <footer>
+        <div class="container_footer">
+            <div class="footer_img">
+                <img src="../static/img/footer_img.png" alt="">
+            </div>
+            <div class="cont_footer">
+                <div class="cont_footer_title footer_title_second">
+                    <ul>
+                        <label>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel provident deleniti sunt in
+                            commodi iure cumque optio amet adipisci iste sed, libero sit, velit similique quam?
+                            Voluptate odit alias aspernatur?</label>
+                    </ul>
+                </div>
+                <div class="cont_footer_title">
+                    <ul>
+                        <label>Servicios</label>
+                        <a href="compra_y_venta_de_divisas">Compra y Venta de Divisas</a>
+                        <a href="transferencias_internacionales">Transferencias Internacionales</a>
+                        <a href="compra_y_venta_de_cheques_viajeros">Compra y venta de cheques de viajero</a>
+                        <a href="envio_de_remesas">Envío de Remesas</a>
+                        <a href="envio_de_dinero">Envíos de dinero</a>
+                    </ul>
+                </div>
+                <div class="cont_footer_title">
+                    <ul>
+                        <label>Nosotros</label>
+                        <a href="quienes_somos">¿Quienes somos?</a>
+                        <a href="reseñas">Reseñas</a>
+                        <a href="conversor">Convertidor</a>
+                    </ul>
+                </div>
+            </div>
+            <div class="cont_footer_social">
+                <ul>
+                    <i class="fa-brands fa-facebook"></i>
+                    <i class="fa-brands fa-whatsapp"></i>
+                    <i class="fa-brands fa-instagram"></i>
+                    <i class="fa-brands fa-twitter"></i>
+                </ul>
+            </div>
+            <div class="copyrights_footer">
+                <label>Copyright © 2024 Casa de Cambios ® </label>
+                <div class="politics_footer">
+                    <a href="">Privacidad</a>
+                    <a href="">Cookies</a>
+                    <a href="/">Inicio</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    {%endblock%}
+
+    <!--Script mensajes desaparecen-->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Obtenemos la lista de mensajes flash
+            const flashMessages = document.getElementById('flash-messages');
+
+            // Si hay mensajes, configuramos el temporizador para que desaparezcan después de 3 segundos
+            if (flashMessages) {
+                setTimeout(function () {
+                    flashMessages.style.opacity = '0';
+                    setTimeout(function () {
+                        flashMessages.style.display = 'none';
+                    }, 3000);  // Después de que termine el efecto fade, ocultamos el elemento
+                }, 4000);
+            }
+        });
+    </script>
+
+    <script>
+        //Togle
+
+        $(document).ready(function () {
+
+            $('.sub-btn').click(function () {
+                $(this).next('.sub-menu').slideToggle();
+                $(this).find('.dropdown').toggleClass('rotate');
+            });
+
+            $('.nav-icon').click(function () {
+                $('.side-bar').addClass('active');
+
+            });
+            $('.close-btn').click(function () {
+                $('.side-bar').removeClass('active');
+
+            });
+
+        });
+    </script>
+
+</body>
+
+</html>
