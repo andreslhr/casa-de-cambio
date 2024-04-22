@@ -1,13 +1,14 @@
 {%extends 'base.html'%}
 
-{%block title%}Quienes Somos{%endblock%}
+{%block title%}Reseñas{%endblock%}
 
 {%block content%}
 <style>
-    body{
+    body {
         background-color: #fff;
     }
 </style>
+
 <body>
     <section>
         <div class="cotainer_comentarios">
@@ -15,7 +16,7 @@
                 <div class="cont_comentarios_img_title">
                     <p>"Cambiando moneda con confianza y facilidad. Descubre lo que nuestros clientes tienen que decir
                         sobre su experiencia con nosotros."</p>
-                        <a href="registro">Registrate ahora</a>
+                    <a href="registro">Registrate ahora</a>
                 </div>
             </div>
 
@@ -92,12 +93,67 @@
                     </div>
                 </div>
             </div>
+            <div class="comentarios_text">
+                <h1>Dejanos tu comentario:</h1>
+                <div class="comentarios_inf">
+                    <form>
+                        <div class="rating">
+                            <input type="number" name="rating" hidden>
+                            <i class='bx bx-star star' style="--i: 0;"></i>
+                            <i class='bx bx-star star' style="--i: 1;"></i>
+                            <i class='bx bx-star star' style="--i: 2;"></i>
+                            <i class='bx bx-star star' style="--i: 3;"></i>
+                            <i class='bx bx-star star' style="--i: 4;"></i>
+                        </div>
+                        <textarea name="comentary" placeholder="Escribe tu comentario..." maxlength="80"
+                            required></textarea>
+                        <input type="submit" value="Enviar" id="comentarioBtn" disabled>
+                    </form>
+
+                </div>
+            </div>
         </div>
     </section>
 
     <!--JavaScript-->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="../static/js/swipper.js"></script>
+
+    <script>
+        const textarea = document.querySelector("textarea");
+        textarea.addEventListener("keyup", e => {
+            textarea.style.height = "63px";
+            let scHeight = e.target.scrollHeight;
+            textarea.style.height = `${scHeight}px`;
+        });
+
+        const allStar = document.querySelectorAll('.rating .star')
+        const ratingValue = document.querySelector('.rating input')
+
+        allStar.forEach((item, idx) => {
+            item.addEventListener('click', function (){
+                let click = 0
+                ratingValue.value = idx + 1
+                console.log(ratingValue.value)
+
+                allStar.forEach(i=> {
+                    i.classList.replace('bxs-star', 'bx-star')
+                    i.classList.remove('active')
+                })
+
+                for(let i=0; i<allStar.length; i++){
+                    if(i <= idx){
+                        allStar[i].classList.replace('bx-star', 'bxs-star')
+                        allStar[i].classList.add('active')
+                    }else{
+                        allStar[i].style.setProperty('--i', click)
+                        click++
+                    }
+                }
+            })
+        })
+    </script>
+
 </body>
 
 {%endblock%}

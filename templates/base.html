@@ -8,6 +8,7 @@
     <!--Link-->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/estilos.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="shorcut icon" href="../static/img/icon_web.png">
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
@@ -40,6 +41,20 @@
 </head>
 
 <body>
+
+    <!--COOKIES-->
+    <div id="cookies">
+        <div class="container_cookies">
+            <div class="subcontainer_cookies">
+                <div class="cookies">
+                    <p>Este sitio web utiliza cookies para asegurarnos de brindarte la mejor experiencia de usuario
+                        posible. <a href="cookies" target="_blank">Mas información.</a></p>
+                    <button id="btn_cookies">Esta bién!</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     {% with messages = get_flashed_messages() %}
     {% if messages %}
     {% for message in messages %}
@@ -61,13 +76,14 @@
                 </div>
                 <nav>
                     <li><a href="/">Inicio</a></li>
-                    <li><a href="/">Servicios<i class="fa-solid fa-chevron-down"></i></a>
+                    <li><a href="/">Servicios Online<i class="fa-solid fa-chevron-down"></i></a>
                         <ul class="sub_menu">
-                            <a href="compra_y_venta_de_divisas">Compra y Venta de Divisas</a>
+                            <a href="compra_de_divisas">Compra de Divisas</a>
+                            <a href="venta_de_divisas">Venta de Divisas</a>
                             <a href="transferencias_internacionales">Transferencias Internacionales</a>
-                            <a href="compra_y_venta_de_cheques_viajeros">Compra y venta de cheques de viajero</a>
-                            <a href="envio_de_remesas">Envío de Remesas</a>
-                            <a href="envio_de_dinero">Envíos de dinero</a>
+                            <!--<a href="compra_y_venta_de_cheques_viajeros">Compra y venta de cheques de viajero</a>-->
+                            <!--  <a href="envio_de_remesas">Envío de Remesas</a>-->
+                            <!--<a href="envio_de_dinero">Envíos de dinero</a>-->
                         </ul>
                     </li>
                     <li><a href="conversor">Convertidor</a></li>
@@ -148,19 +164,20 @@
             <div class="cont_footer">
                 <div class="cont_footer_title footer_title_second">
                     <ul>
-                        <label>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel provident deleniti sunt in
-                            commodi iure cumque optio amet adipisci iste sed, libero sit, velit similique quam?
-                            Voluptate odit alias aspernatur?</label>
+                        <label>Bienvenidos a Tucambio, tu casa de cambio de confianza donde hacemos que tus
+                            transacciones financieras sean simples, seguras y eficientes. Desde nuestra fundación en
+                            [año de fundación]. </label>
                     </ul>
                 </div>
                 <div class="cont_footer_title">
                     <ul>
                         <label>Servicios</label>
-                        <a href="compra_y_venta_de_divisas">Compra y Venta de Divisas</a>
+                        <a href="compra_de_divisas">Compra de Divisas</a>
+                        <a href="venta_de_divisas">Venta de Divisas</a>
                         <a href="transferencias_internacionales">Transferencias Internacionales</a>
-                        <a href="compra_y_venta_de_cheques_viajeros">Compra y venta de cheques de viajero</a>
-                        <a href="envio_de_remesas">Envío de Remesas</a>
-                        <a href="envio_de_dinero">Envíos de dinero</a>
+                        <!--<a href="compra_y_venta_de_cheques_viajeros">Compra y venta de cheques de viajero</a>-->
+                        <!--  <a href="envio_de_remesas">Envío de Remesas</a>-->
+                        <!--<a href="envio_de_dinero">Envíos de dinero</a>-->
                     </ul>
                 </div>
                 <div class="cont_footer_title">
@@ -183,8 +200,8 @@
             <div class="copyrights_footer">
                 <label>Copyright © 2024 Casa de Cambios ® </label>
                 <div class="politics_footer">
-                    <a href="">Privacidad</a>
-                    <a href="">Cookies</a>
+                    <a href="privacidad">Privacidad</a>
+                    <a href="cookies">Cookies</a>
                     <a href="/">Inicio</a>
                 </div>
             </div>
@@ -193,6 +210,7 @@
 
     {%endblock%}
 
+    <script src="../static/js/cookies.js"></script>
     <!--Script mensajes desaparecen-->
     <script>
         document.addEventListener('DOMContentLoaded', function () {
@@ -232,6 +250,8 @@
 
         });
     </script>
+
+
 
 </body>
 
