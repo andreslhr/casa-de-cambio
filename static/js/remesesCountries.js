@@ -429,6 +429,15 @@ function populate(s1, s2) {
         s2.appendChild(newoption);
     }
 
+
+    // Deshabilitar la opción con valor "0" en el primer select
+    if (s1.value != "0") {
+        var optionZero = s1.querySelector('option[value="0"]');
+        if (optionZero) {
+            optionZero.disabled = true;
+        }
+    }
+
 }
 
 // CIudades o pueblos
