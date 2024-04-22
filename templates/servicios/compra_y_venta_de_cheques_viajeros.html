@@ -1,6 +1,6 @@
 {%extends 'base.html'%}
 
-{%block title%}Intercambio{%endblock%}
+{%block title%}Compra de CHeques Viajeros{%endblock%}
 
 {%block content%}
 
@@ -32,22 +32,22 @@
                                     <div>
                                         <ul>
                                             <label>Numero de Cedula:</label>
-                                            <input type="number" name="cedula">
+                                            <input type="number" name="cedula" required>
                                         </ul>
                                         <ul>
                                             <label>Primer nombre:</label>
-                                            <input type="text" name="nombre">
+                                            <input type="text" name="nombre" required>
                                         </ul>
                                         <ul>
                                             <label>Primer apellido:</label>
-                                            <input type="text" name="apellido">
+                                            <input type="text" name="apellido" required>
                                         </ul>
 
                                     </div>
                                     <div>
                                         <ul>
                                             <label>Nacionalidad:</label>
-                                            <select name="nacionalidad" id="nacionalidad">
+                                            <select name="nacionalidad" id="nacionalidad" required>
                                                 <option disabled>Seleccione</option>
                                                 <option>Argentina</option>
                                                 <option>Bolivia</option>
@@ -69,16 +69,16 @@
                                         </ul>
                                         <ul>
                                             <label>Fecha de nacimiento</label>
-                                            <input type="date" name="cedula">
+                                            <input type="date" name="cedula" required>
                                         </ul>
                                         <ul>
                                             <label>Numero de telefono:</label>
-                                            <input type="number" name="telefono">
+                                            <input type="number" name="telefono" required>
                                         </ul>
 
                                     </div>
                                 </div>
-                                <ul>
+                                <ul class="btn_form">
                                     <!--
                                     <input type="submit" id="btn_first" value="Aceptar">
                                     -->
@@ -95,15 +95,15 @@
                                     <div>
                                         <ul>
                                             <label>Calle o Urbanizacion:</label>
-                                            <input type="text" name="calle">
+                                            <input type="text" name="calle" required>
                                         </ul>
                                         <ul>
                                             <label>N° de casa:</label>
-                                            <input type="number" name="ncasa">
+                                            <input type="number" name="ncasa" required>
                                         </ul>
                                         <ul>
                                             <label>Codigo Postal:</label>
-                                            <input type="number" name="codigoPostal">
+                                            <input type="number" name="codigoPostal" required>
                                         </ul>
 
                                     </div>
@@ -111,7 +111,7 @@
                                         <ul>
                                             <label>Pais:</label>
                                             <select name="slct1" id="slct1" class="pais"
-                                                onchange="populate(this.id,'slct2')">
+                                                onchange="populate(this.id,'slct2')" required>
                                                 <option value="0">Seleccione el pais a enviar</option>
                                                 <option value="argentina">Argentina</option>
                                                 <option value="bolivia">Bolivia</option>
@@ -133,13 +133,13 @@
                                         </ul>
                                         <ul>
                                             <label>Estado o provincia:</label>
-                                            <select name="slct2" id="slct2" class="estado">
+                                            <select name="slct2" id="slct2" class="estado" required>
                                                 <!-- <option value="0">Seleccione estado o provincia:</option>    -->
                                             </select>
                                         </ul>
                                         <ul>
                                             <label>Ciudad:</label>
-                                            <input type="text" name="ciudad">
+                                            <input type="text" name="ciudad" required>
                                         </ul>
                                     </div>
                                 </div>
@@ -155,21 +155,21 @@
                         <div class="cont_form_three" id="three_form">
                             <div class="form_first">
                                 <div class="transfer_title">
-                                    <h1>Información bancaria (Venta):</h1>
+                                    <h1 style="width: 250px;">Información bancaria (Venta):</h1>
                                 </div>
                                 <div class="cont_form">
                                     <div>
                                         <ul>
                                             <label>Numero de cuenta:</label>
-                                            <input type="number" name="cuenta">
+                                            <input type="number" name="ventaCuenta">
                                         </ul>
                                         <ul>
                                             <label>Nombre del titular:</label>
-                                            <input type="text" name="cuenta_nombre">
+                                            <input type="text" name="ventasNombre">
                                         </ul>
                                         <ul>
                                             <label>Nombre del banco:</label>
-                                            <select id="nombre_banco">
+                                            <select id="nombre_banco" name="ventaBanco">
                                                 <option disabled>Seleccione</option>
                                                 <option>Banco Venezuela</option>
                                                 <option>Banco Provincial</option>
@@ -179,26 +179,38 @@
                                                 <option>Banco del Tesoro</option>
                                             </select>
                                         </ul>
+                                        <ul>
+                                            <label>Seleccione la moneda:</label>
+                                            <select id="nombre_banco" name="ventaMoneda">
+                                                <option disabled>Seleccione</option>
+                                                <option>Dolar (USD)</option>
+                                                <option>Euro (EUR)</option>
+                                                <option>Peso mexicano (MXN)</option>
+                                                <option>Peso colombiano (COP)</option>
+                                                <option>Bolívar (VED)</option>
+
+                                            </select>
+                                        </ul>
                                     </div>
                                     <div>
                                         <ul>
                                             <label>N° de cedula</label>
-                                            <input type="number" name="cuenta_cedula">
+                                            <input type="number" name="ventaCedula">
                                         </ul>
                                         <ul>
                                             <label>N° de telefono:</label>
-                                            <input type="number" name="cuenta_telefono">
+                                            <input type="number" name="ventaTelefono">
                                         </ul>
                                         <ul>
-                                            <label>Monto:</label>
-                                            <input type="number" name="monto_venta">
+                                            <label>Monto <span>(Utilice la "," para los decimales)</span>:</label>
+                                            <input type="number" name="ventaMonto">
                                         </ul>
                                     </div>
                                 </div>
                             </div>
                             <div class="form_first">
                                 <div class="transfer_title">
-                                    <h1>Información bancaria (Compra):</h1>
+                                    <h1 style="width: 250px;">Información bancaria (Compra):</h1>
                                     <h2
                                         style="text-align: center; font-size: 13px; font-weight: 400; padding-top: 15px;">
                                         Recurde que las transferencias a otros bancos se hacen efectivas al dia
@@ -217,11 +229,11 @@
                                         </ul>
                                         <ul>
                                             <label>N° de referencia:</label>
-                                            <input type="number" name="referencia_n" required>
+                                            <input type="number" name="compraReferencia">
                                         </ul>
                                         <ul>
                                             <label>Seleccione la moneda:</label>
-                                            <select id="nombre_banco">
+                                            <select id="nombre_banco" name="compraMoneda">
                                                 <option disabled>Seleccione</option>
                                                 <option>Dolar (USD)</option>
                                                 <option>Euro (EUR)</option>
@@ -236,7 +248,7 @@
 
                                         <ul>
                                             <label>Fecha:</label>
-                                            <input type="date" name="fecha_pago">
+                                            <input type="date" name="fecha_pago" name="compraFecha">
                                         </ul>
 
                                         <ul>
@@ -252,7 +264,7 @@
                                         </ul>
                                         <ul>
                                             <label>Seleccione banco origen :</label>
-                                            <select id="nombre_banco">
+                                            <select id="nombre_banco" name="compraBanco">
                                                 <option disabled>Seleccione</option>
                                                 <option>Banco Venezuela</option>
                                                 <option>Banco Provincial</option>
@@ -264,7 +276,7 @@
                                         </ul>
                                         <ul>
                                             <label>Monto <span>(Utilice la "," para los decimales)</span>:</label>
-                                            <input type="number" name="monto_venta" required>
+                                            <input type="number" name="compraMonto">
                                             <style>
                                                 span {
                                                     font-size: 12px;
@@ -284,13 +296,14 @@
                                     <div>
                                         <ul>
                                             <label>Seleccione banco a transferir:</label>
-                                            <select id="bancos2" class="bancos" onchange="mostrarNumeroCuenta()">
+                                            <select id="bancos_2" class="bancos" name="pagomovilBanco"
+                                                onchange="ocultarOption()">
                                                 <option value="0">Selecciona un banco</option>
-                                                <option value="1" data-cuenta="010201136010000164">Banco Venezuela
+                                                <option value="1">Banco Venezuela
                                                 </option>
-                                                <option value="2" data-cuenta="010801136010000164">Provincial</option>
-                                                <option value="3" data-cuenta="013401136010000164">Banesco</option>
-                                                <option value="4" data-cuenta="010501136010000164">Mercantil</option>
+                                                <option value="2">Provincial</option>
+                                                <option value="3">Banesco</option>
+                                                <option value="4">Mercantil</option>
                                             </select>
                                         </ul>
                                         <ul>
@@ -307,7 +320,7 @@
                                         </ul>
                                         <ul>
                                             <label>N° de referencia:</label>
-                                            <input type="number" name="referencia_n">
+                                            <input type="number" name="pagomovilReferencia">
                                         </ul>
                                     </div>
                                 </div>
@@ -344,6 +357,16 @@
             }
 
             numeroCuenta.textContent = "" + cuenta;
+        }
+        
+        function ocultarOption() {
+            var select = document.getElementById("bancos_2");
+
+            // Desactivar la opción "Selecciona un banco"
+            if (select.value !== "0") {
+                select.options[0].disabled = true;
+            }
+
         }
     </script>
 

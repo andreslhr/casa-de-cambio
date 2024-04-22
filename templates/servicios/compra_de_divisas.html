@@ -1,6 +1,6 @@
 {%extends 'base.html'%}
 
-{%block title%}Envio de Remesas{%endblock%}
+{%block title%}Compra de Divisas{%endblock%}
 
 {%block content%}
 
@@ -13,7 +13,7 @@
     <section>
 
         <div class="container_transfer">
-            <h1>Envio de remesas</h1>
+            <h1>Compra de divisas</h1>
             <div class="cont_transfer">
                 <div class="transfer_info">
                     <h1>Usuario: <label>#245689</label></h1>
@@ -69,7 +69,7 @@
                                         </ul>
                                         <ul>
                                             <label>Fecha de nacimiento</label>
-                                            <input type="date" name="cedula" required>
+                                            <input type="date" name="fechaNac" required>
                                         </ul>
                                         <ul>
                                             <label>Numero de telefono:</label>
@@ -95,24 +95,24 @@
                                     <div>
                                         <ul>
                                             <label>Calle o Urbanizacion:</label>
-                                            <input type="text" name="calle" required>
+                                            <input type="text" name="calle">
                                         </ul>
                                         <ul>
                                             <label>N° de casa:</label>
-                                            <input type="number" name="ncasa" required>
+                                            <input type="number" name="ncasa">
                                         </ul>
                                         <ul>
                                             <label>Codigo Postal:</label>
-                                            <input type="number" name="codigoPostal" required>
+                                            <input type="number" name="codigoPostal">
                                         </ul>
 
                                     </div>
                                     <div>
                                         <ul>
                                             <label>Pais:</label>
-                                            <select name="slct1" id="slct1_1" class="pais"
-                                                onchange="populate(this.id,'slct2_1')" required>
-                                                <option value="0">Selecciona:</option>
+                                            <select name="slct1" id="slct1" class="pais"
+                                                onchange="populate(this.id,'slct2')">
+                                                <option value="0">Selecciona el pais</option>
                                                 <option value="argentina">Argentina</option>
                                                 <option value="bolivia">Bolivia</option>
                                                 <option value="brasil">Brasil</option>
@@ -133,92 +133,143 @@
                                         </ul>
                                         <ul>
                                             <label>Estado o Provincia:</label>
-                                            <select name="estado" id="slct2_1" class="estado" required>
-                                                <!-- <option value="0">Seleccione estado o provincia:</option>    -->
+                                            <select name="estado" id="slct2" class="estado">
+
                                             </select>
                                         </ul>
                                         <ul>
                                             <label>Ciudad:</label>
-                                            <input type="text" name="ciudad" required>
+                                            <input type="text" name="ciudad">
                                         </ul>
                                     </div>
-                                </div>  
+                                </div>
                                 <ul class="btn_form">
                                     <!--
                                     <input type="submit" id="btn_first" value="Aceptar">
                                     -->
                                     <a href="#" class="first_link">Atras</a>
                                     <a href="#" class="three_link">Continuar</a>
-                                </ul>                          
+                                </ul>
                             </div>
                         </div>
-                        <div class="cont_form_three" id="three_form">
+                        <div class="cont_form_three" id="three_form">                       
                             <div class="form_first">
                                 <div class="transfer_title">
-                                    <h1>Informacion de envio:</h1>
+                                    <h1 style="width: 250px;">Información bancaria:</h1>
+                                    <h2
+                                        style="text-align: center; font-size: 13px; font-weight: 400; padding-top: 15px;">
+                                        Recurde que las transferencias a otros bancos se hacen efectivas al dia
+                                        siguiente.
+                                    </h2>
                                 </div>
                                 <div class="cont_form">
                                     <div>
                                         <ul>
-                                            <label>Pais:</label>
-                                            <select name="pais" id="slct1_2" class="pais"
-                                                onchange="populate(this.id,'slct2_2')" required>
-                                                <option value="0">Selecciona el pais a enviar:</option>
-                                                <option value="argentina">Argentina</option>
-                                                <option value="bolivia">Bolivia</option>
-                                                <option value="brasil">Brasil</option>
-                                                <option value="chile">Chile</option>
-                                                <option value="colombia">Colombia</option>
-                                                <option value="cuba">Cuba</option>
-                                                <option value="ecuador">Ecuador</option>
-                                                <option value="guyana">Guyana</option>
-                                                <option value="guatemala">Guatemala</option>
-                                                <option value="mexico">Mexico</option>
-                                                <option value="nicaragua">Nicaragua</option>
-                                                <option value="panama">Panama</option>
-                                                <option value="paraguay">Paraguay</option>
-                                                <option value="peru">Perú</option>
-                                                <option value="uruguay">Uruguay</option>
-                                                <option value="venezuela">Venezuela</option>
-                                            </select>
+                                            <label>Numero de cuenta:</label>
+                                            <p id="numeroCuenta"></p>
                                         </ul>
                                         <ul>
-                                            <label>Estado o provincia:</label>
-                                            <select name="estado" id="slct2_2" class="estado"
-                                                onchange="populateCiudades(this.value, 'slct3_2')" required>
-                                                <!-- <option value="0">Seleccione estado o provincia:</option>    -->
-                                            </select>
+                                            <label>Nombre del titular:</label>
+                                            <input type="text" value="Andres Leonardo Hernandez Rondon" disabled>
                                         </ul>
                                         <ul>
-                                            <label>Ciudad o pueblo:</label>
-                                            <select name="ciudad" id="slct3_2" class="ciudad" required>
-                                            </select>
+                                            <label>N° de referencia:</label>
+                                            <input type="number" name="compraReferencia">
                                         </ul>
+                                        <ul>
+                                            <label>Seleccione la moneda:</label>
+                                            <select id="nombre_banco" name="compraMoneda">
+                                                <option disabled>Seleccione</option>
+                                                <option>Dolar (USD)</option>
+                                                <option>Euro (EUR)</option>
+                                                <option>Peso mexicano (MXN)</option>
+                                                <option>Peso colombiano (COP)</option>
+                                                <option>Bolívar (VED)</option>
 
+                                            </select>
+                                        </ul>
                                     </div>
                                     <div>
+
                                         <ul>
-                                            <label>N° de cedula <span>(persona a retirar)</span>:</label>
-                                            <input type="number" name="envioCedula" required>
+                                            <label>Fecha:</label>
+                                            <input type="date" name="fecha_pago" name="compraFecha">
+                                        </ul>
+
+                                        <ul>
+                                            <label>Seleccione banco a transferir:</label>
+                                            <select id="bancos" class="bancos" onchange="mostrarNumeroCuenta()">
+                                                <option value="0">Selecciona un banco</option>
+                                                <option value="1" data-cuenta="010201136010000164">Banco Venezuela
+                                                </option>
+                                                <option value="2" data-cuenta="010801136010000164">Provincial</option>
+                                                <option value="3" data-cuenta="013401136010000164">Banesco</option>
+                                                <option value="4" data-cuenta="010501136010000164">Mercantil</option>
+                                            </select>
                                         </ul>
                                         <ul>
-                                            <label>N° de telefono <span>(persona a retirar)</span>:</label>
-                                            <input type="number" name="envioTelefono" required>
+                                            <label>Seleccione banco origen :</label>
+                                            <select id="nombre_banco" name="compraBanco">
+                                                <option disabled>Seleccione</option>
+                                                <option>Banco Venezuela</option>
+                                                <option>Banco Provincial</option>
+                                                <option>Mercantil</option>
+                                                <option>Banesco</option>
+                                                <option>Banco Nacional de Credito</option>
+                                                <option>Banco del Tesoro</option>
+                                            </select>
                                         </ul>
                                         <ul>
-                                            <label>Nombre completo<span> (persona a retirar)</span>:</label>
-                                            <input type="text" name="envioNombre" required>
+                                            <label>Monto <span>(Utilice la "," para los decimales)</span>:</label>
+                                            <input type="number" name="compraMonto">
                                             <style>
                                                 span {
                                                     font-size: 12px;
-                                                    color: #393838;
+                                                    color: rgba(0, 0, 0, 0.719);
                                                 }
                                             </style>
                                         </ul>
                                     </div>
                                 </div>
                             </div>
+                            <div class="form_first">
+                                <div class="transfer_title">
+                                    <h2 style="text-align: center; font-size: 13px; font-weight: 400;">Para pago movil:
+                                    </h2>
+                                </div>
+                                <div class="cont_form">
+                                    <div>
+                                        <ul>
+                                            <label>Seleccione banco a transferir:</label>
+                                            <select id="bancos_2" class="bancos" name="pagomovilBanco"
+                                                onchange="ocultarOption()">
+                                                <option value="0">Selecciona un banco</option>
+                                                <option value="1">Banco Venezuela
+                                                </option>
+                                                <option value="2">Provincial</option>
+                                                <option value="3">Banesco</option>
+                                                <option value="4">Mercantil</option>
+                                            </select>
+                                        </ul>
+                                        <ul>
+                                            <label>N° de cedula:</label>
+                                            <input type="text" value="27300228" disabled>
+                                        </ul>
 
+                                    </div>
+                                    <div>
+
+                                        <ul>
+                                            <label>N° de telefono:</label>
+                                            <input type="text" value="04129292382" disabled>
+                                        </ul>
+                                        <ul>
+                                            <label>N° de referencia:</label>
+                                            <input type="number" name="pagomovilReferencia">
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
                             <ul class="btn_form">
                                 <!--
                                     <input type="submit" id="btn_first" value="Aceptar">
@@ -239,6 +290,30 @@
     <script src="../../static/js/desplazamiento.js"></script>
     <script src="../../static/js/remesesCountries.js"></script>
 
+    <script>
+        function mostrarNumeroCuenta() {
+            var select = document.getElementById("bancos");
+            var numeroCuenta = document.getElementById("numeroCuenta");
+            var bancoSeleccionado = select.options[select.selectedIndex];
+            var cuenta = bancoSeleccionado.getAttribute("data-cuenta");
+
+            // Desactivar la opción "Selecciona un banco"
+            if (select.value !== "0") {
+                select.options[0].disabled = true;
+            }
+
+            numeroCuenta.textContent = "" + cuenta;
+        }
+        function ocultarOption() {
+            var select = document.getElementById("bancos_2");
+
+            // Desactivar la opción "Selecciona un banco"
+            if (select.value !== "0") {
+                select.options[0].disabled = true;
+            }
+
+        }
+    </script>
 
 </body>
 
