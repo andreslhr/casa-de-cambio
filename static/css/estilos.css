@@ -328,7 +328,7 @@ body {
     align-items: center;
 
     @media (max-width:1000px) {
-        height: 150vh;
+        height: auto;
         margin: 2em 0;
     }
 }
@@ -346,11 +346,11 @@ body {
     @media (max-width:1000px) {
         flex-direction: column;
         width: 90%;
-        height: 150vh;
+        height: auto;
         border-top-right-radius: 0;
         border-bottom-right-radius: 25px;
         border-bottom-left-radius: 25px;
-        overflow: hidden;
+
     }
 
 }
@@ -366,6 +366,16 @@ body {
     @media (max-width:1000px) {
         padding: 15px;
         width: 100%;
+        height: auto;
+    }
+}
+
+.cont_register_title ul {
+    @media (max-width:1000px) {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
     }
 }
 
@@ -378,6 +388,11 @@ body {
     transform: translateX(-50%);
     color: rgb(15, 97, 170);
     font-size: 22px;
+
+    @media (max-width:1000px) {
+        position: unset;
+        transform: translateX(0);
+    }
 }
 
 .cont_login_title h1,
@@ -391,6 +406,16 @@ body {
 .cont_login .cont_login_title .cont_login_title_icon i,
 .cont_register_title_icon i {
     margin: 0 4px;
+}
+
+.cont_login_title ul {
+    @media (max-width:1000px) {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
 }
 
 .contenedor_login .cont_login .cont_login_form {
@@ -472,6 +497,25 @@ input[type=password] {
     top: -130px;
     left: 50%;
     transform: translateX(-50%);
+
+    @media (max-width:1000px) {
+        position: unset;
+        transform: translateX(0);
+
+    }
+}
+
+.cont_login_gif {
+    padding-top: 25px;
+    display: none;
+
+    @media (max-width:1000px) {
+        display: block;
+    }
+}
+
+.cont_login_gif img {
+    width: 80px;
 }
 
 /*register*/
@@ -489,7 +533,7 @@ input[type=password] {
     @media (max-width:1000px) {
         flex-direction: column;
         width: 90%;
-        height: 140vh;
+        height: auto;
         border-bottom-left-radius: 0;
         border-top-right-radius: 25px;
         border-top-left-radius: 25px;
@@ -510,6 +554,7 @@ input[type=password] {
     @media (max-width:1000px) {
         padding: 20px 10px;
         width: 100%;
+        height: auto;
     }
 }
 
@@ -538,6 +583,13 @@ input[type=password] {
     top: -130px;
     left: 50%;
     transform: translateX(-50%);
+
+    @media (max-width:1000px) {
+        position: unset;
+        left: 0;
+        transform: translateX(0);
+
+    }
 }
 
 /*Footer*/
@@ -717,7 +769,7 @@ input[type=password] {
     text-align: center;
 
     @media (max-width:1000px) {
-        width: 60%;
+        width: 80%;
     }
 }
 
@@ -752,6 +804,10 @@ input[type=password] {
     width: 80%;
     margin: 0 auto;
     padding: 50px 0;
+
+    @media (max-width:1000px) {
+        width: 90%;
+    }
 }
 
 .container_three_index .cont_three div {
@@ -779,6 +835,7 @@ input[type=password] {
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 350px;
 
     @media (max-width:1000px) {
         min-width: calc(100% - .5rem);
@@ -802,6 +859,10 @@ input[type=password] {
     width: 70%;
     margin: 0 auto;
     padding: 50px 0;
+
+    @media (max-width:1000px) {
+        width: 80%;
+    }
 }
 
 .container_four_index .cont_four div {
@@ -1168,6 +1229,7 @@ input[type=password] {
     display: flex;
     flex-direction: row;
     gap: 1em;
+    margin-top: 2em;
 
     @media (max-width:1000px) {
         flex-direction: column;
@@ -1185,10 +1247,15 @@ input[type=password] {
     display: block;
 }
 
+.container_form label {
+    padding: 12px 5px;
+    font-size: 13px;
+}
+
 .container_transfer form ul {
     flex-direction: column;
     display: flex;
-    margin-bottom: 1em;
+
 }
 
 .container_transfer form ul input,
@@ -1414,6 +1481,10 @@ select {
     outline: var(--outline);
     transition: .2s linear;
     box-shadow: 7px 7px 18px #00000032;
+
+    @media (max-width:1000px) {
+        box-shadow: 3px 3px 12px #00000024;
+    }
 }
 
 .review .review-slider .box img {
@@ -1438,4 +1509,188 @@ select {
 .review .review-slider .box .stars i {
     color: orange;
     font-size: 1rem;
+}
+
+.comentarios_text{
+    padding-bottom: 2em;
+}
+.comentarios_text h1 {
+    text-align: center;
+    font-weight: 600;
+    font-size: 25px;
+}
+
+.comentarios_inf {
+    padding: 1em;
+    display: flex;
+    justify-content: center;
+    margin: auto;
+}
+
+.comentarios_inf form{
+    gap: 1em;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.comentarios_inf form #comentarioBtn{
+    width: 200px;
+    background-color: rgb(53, 151, 255);
+    color: #fff;
+    border: none;
+    margin: 0 auto;
+    padding: 10px;
+    font-size: 15px;
+    cursor: pointer;
+    transition: ease all 200ms;
+}
+.comentarios_inf form #comentarioBtn:hover{
+    background-color: rgb(81, 160, 245);
+}
+.comentarios_inf form textarea{
+    width: 350px;
+    height: 59px;
+    padding: 15px;
+    outline: none;
+    resize: none;
+    font-size: 16px;
+    border-radius: 5px;
+    border-color: #bfbfbf;
+    max-height: 150px;
+}
+
+.comentarios_inf form textarea:is(:focus, :valid){
+    border-width: 2px;
+    padding: 14px;
+    border-color: rgb(53, 151, 255);;
+}
+.comentarios_inf form textarea::-webkit-scrollbar{
+    width: 0px;
+}
+.comentarios_inf .rating{
+    grid-gap: .5em;
+    font-size: 1.5em;
+    color: rgb(249, 179, 0);
+}
+
+.rating .star{
+    cursor: pointer;
+}
+.rating .star.active{
+    opacity: 0;
+    animation: animate .5s calc(var(--i) * .1s) ease-in-out forwards;
+}
+
+@keyframes animate {
+    0%{
+        opacity: 0;
+        transform: scale(1);
+    }
+    50%{
+        opacity: 1;
+        transform: scale(1.2);
+    }
+    100%{
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.rating .star:hover{
+    transform: scale(1.1);
+}
+/*PRIVACIDAD*/
+.container_privacidad {
+    background-color: #fff;
+}
+
+.cont_privacidad {
+    margin: 0 auto;
+    width: 80%;
+    padding: 3em 0;
+}
+
+.cont_privacidad h1 {
+    text-align: center;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 25px;
+    margin-bottom: 1em;
+}
+
+.privacidad_info {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    text-align: justify;
+}
+
+.cont_privacidad h2 {
+    font-size: 17px;
+    font-weight: 600;
+    text-align: center;
+}
+
+.cont_privacidad p,
+.cont_privacidad label {
+    font-size: 15px;
+}
+
+.privacidad_info a {
+    color: rgb(33, 118, 210);
+    font-weight: 600;
+}
+
+/*BUTTTON COOKIES*/
+
+.container_cookies {
+    width: 100%;
+    margin: auto;
+}
+
+#cookies {
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.677);
+    z-index: 20;
+    display: none
+}
+
+.subcontainer_cookies {
+    width: 85%;
+    margin: auto;
+}
+
+.cookies {
+    min-height: 70px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.cookies a {
+    font-weight: 600;
+    text-decoration: none;
+    color: rgb(255, 238, 47);
+}
+
+#btn_cookies {
+    border-radius: 5px;
+    padding: 8px 12px;
+    font-size: 1em;
+    cursor: pointer;
+    background-color: #06438c;
+    color: #fff;
+    border: 2px solid white;
+}
+
+@media (max-width:1000px) {
+    .cookies {
+        padding: 10px 0;
+    }
 }
